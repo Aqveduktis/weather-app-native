@@ -14,8 +14,7 @@ export default function Weather() {
         .then(json => {
             setForecast(json.list)
             setDone(true)
-            console.log("list",json.list)
-            alert(json.list[1].weather)})
+            console.log("list",json.list)})
     },[])
 
 
@@ -29,7 +28,5 @@ export default function Weather() {
             <Text> {time.dt_txt} </Text>)}
         })}
         </View>
-    );
+    )
   }
-  
- 
