@@ -15,7 +15,7 @@ export default function Weather() {
             setForecast(json.list)
             setDone(true)
             console.log("list",json.list)
-            alert(json.list[1].weather)})
+            })
     },[])
 
 
@@ -26,7 +26,7 @@ export default function Weather() {
         {done && forecast.map((time, index, array)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
                 return(
-            <Text> {time.dt_txt} </Text>)}
+            <Text key={time.dt}> {time.dt_txt} </Text>)}
         })}
         </View>
     );

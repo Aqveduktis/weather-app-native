@@ -5,11 +5,13 @@ import {MyButton} from './components/Button';
 import Weather from './components/Weather';
 import { MyCompass } from './components/MyCompass';
 
+// <MyCompass />
 export default function App() {
   return (
     <View style={styles.container}>
-       <Image soure='./assets/Arrow.svg' style={{ width: 305, height: 159 }} /> 
-      <MyCompass />
+      <View>
+       <Image style={{ width:300, height:200 }} source={{uri:'./assets/splash.png'}} /> 
+       </View>
       <Text>Open up App.js to start working on your app!</Text>
       <Weather />
     <MyButton />
