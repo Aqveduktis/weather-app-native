@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styled from "styled-components"
-import MyButton from './components/Button';
+import {MyButton} from './components/Button';
 import Weather from './components/Weather';
+import { MyCompass } from './components/MyCompass';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <MyCompass />
       <Text>Open up App.js to start working on your app!</Text>
       <Weather />
     <MyButton />
@@ -15,13 +17,6 @@ export default function App() {
   );
 }
 
-export const Button = styled.button`
-    background-color: teal;
-    color: white;
-    padding 20px;
-
-
-`
 
 const styles = StyleSheet.create({
   container: {

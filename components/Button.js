@@ -1,22 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import styled from "styled-components"
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import styled from "styled-components/native"
 
-export default function MyButton() {
+const StyledButton = styled.TouchableOpacity`
+background-color: teal;
+color: white;
+padding 20px;
+`;
+
+
+export const MyButton =() => {
     return (
-        <Button 
-        title="Press me"
+      <View>
+        <StyledButton 
+        title="Hello world"
         onPress={() => alert('Hi!')} >
-          Hello world
-        </Button>
+         <Text> Hello world</Text>
+        </StyledButton>
+        </View>
           
     );
   }
   
- const Button = styled.button`
-      background-color: teal;
-      color: white;
-      padding 20px;
+
   
-  
-  `
