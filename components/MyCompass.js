@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Magnetometer } from 'expo-sensors';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
 //{"z":4.5555,"y":8.3"x":8.2}
 export const MyCompass = () => {
@@ -14,18 +14,20 @@ export const MyCompass = () => {
         setMagnetData(result)
         console.log(result)
         
-        text = JSON.stringify(result)
         });
 
   },[]) 
   // let { x, y, z } = magnetData
-  
+  //Object {
+  //  "x": -14.72625732421875,
+  //  "y": 5.58013916015625,
+  // "z": -54.4403076171875,}
 
   return (
 
       <View style={styles.sensor}>
         <Text>Magnetometer: no numbers now  </Text>
-        <Text>{direction(calcAngleDegrees(magnetData.x, magnetData.y))}</Text>
+        <Text>{direction(calcAngleDegrees(magnetData.y, magnetData.x))}</Text>
   <Text>{round(magnetData.x)}</Text>
   <Text>{round(magnetData.y)}</Text>
   <Text>{round(magnetData.z)}</Text>
@@ -33,6 +35,8 @@ export const MyCompass = () => {
         <View style={styles.buttonContainer}>
 
         </View>
+       
+
       </View>
 
   )
