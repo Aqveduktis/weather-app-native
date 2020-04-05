@@ -15,7 +15,6 @@ width: 300px;
 height: 300px;
 margin: 15px auto;
 border-radius: 150px;
-border: 2px solid black;
 transform: ${props => props.transform}
 `;
 

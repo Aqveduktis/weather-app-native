@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, ImageBackground } from 'react-native';
 import styled from "styled-components"
 import {MyButton} from './components/Button';
-import Weather from './components/Weather';
+import {Weather} from './components/Weather';
 import { MyCompass } from './components/MyCompass';
+import {Heading} from './components/Heading';
 
 
 
@@ -12,6 +13,7 @@ export default function App() {
     <View style={styles.container}>
       <ScrollView contentContainerStyle = {styles.children} >
       <ImageBackground source={ {uri:'https://upload.wikimedia.org/wikipedia/commons/6/6a/10_Sprinklers_in_vineyard_-_Trentino-Alto_Adige%2C_Italy.jpg',} } style={styles.image}>
+       <Heading />
        <MyCompass />
       <Text>Open up App.js to start working on your app!</Text>
       <Weather />
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     height: 1000,
     width: 400,
     flexGrow: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
 
   },
   image: {
