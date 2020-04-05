@@ -1,20 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import { Magnetometer } from 'expo-sensors';
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { ImageWrapper } from './ImageWrapper';
 
 //{"z":4.5555,"y":8.3"x":8.2}
 export const MyCompass = () => {
   let text = ""
   let window
   console.log("testing")
-  Magnetometer.setUpdateInterval(1000);
+  
   const [magnetData, setMagnetData] = useState({x:0, y:0, z:0})
   useEffect(()=>{
+    Magnetometer.setUpdateInterval(1000);
   Magnetometer.addListener(result => {
         setMagnetData(result)
         console.log(result)
         
         });
+        return(Magnetometer.removeAllListeners())
 
   },[]) 
   // let { x, y, z } = magnetData
@@ -26,6 +29,7 @@ export const MyCompass = () => {
   return (
 
       <View style={styles.sensor}>
+          <ImageWrapper degree = {calcAngleDegrees(magnetData.y, magnetData.x)} /> 
         <Text>Magnetometer: no numbers now  </Text>
         <Text>{direction(calcAngleDegrees(magnetData.y, magnetData.x))}</Text>
   <Text>{round(magnetData.x)}</Text>
@@ -95,26 +99,6 @@ function direction (degree) {
 
   
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    buttonContainer: {
-      flexDirection: 'row',
-      alignItems: 'stretch',
-      marginTop: 15,
-    },
-    button: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#eee',
-      padding: 10,
-    },
-    middleButton: {
-      borderLeftWidth: 1,
-      borderRightWidth: 1,
-      borderColor: '#ccc',
-    },
     sensor: {
       marginTop: 15,
       paddingHorizontal: 10,
