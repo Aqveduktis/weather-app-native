@@ -4,27 +4,26 @@ import styled from "styled-components/native"
 
 const Wrapper = styled.View`
 justify-content: center;
-width: 300px;
 height: 300px;
-background-color: skyblue;
 color: white;
-padding: 20px;
-border-radius: 150px;
-transform: ${props => props.transform}
+
+
 `;
 
 const MyImage = styled.Image`
 width: 300px;
-height: 100px;
-padding 20px;
-transform: rotate(270deg)
+height: 300px;
+margin: 15px auto;
+border-radius: 150px;
+border: 2px solid black;
+transform: ${props => props.transform}
 `;
 
 
 export const ImageWrapper =(props) => {
     return (
-      <Wrapper transform={`rotate(${props.degree}deg)`}>
-   <MyImage source={require('../assets/arrow2.png')} />
+      <Wrapper >
+   <MyImage source={require('../assets/compassWhite.jpg')} transform={`rotate(${props.degree}deg)`} />
 
         </Wrapper>
           

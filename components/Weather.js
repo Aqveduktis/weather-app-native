@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from 'react-native';
-
+import styled from "styled-components"
 // const secondApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=2b9468766d0e54560c7e599762d2e80b`
 // const secondApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityApi}&appid=2b9468766d0e54560c7e599762d2e80b`
 export default function Weather() {
@@ -26,7 +26,7 @@ export default function Weather() {
 
     return (
         <View>
-           {done && <Text>Today: {today.dt_txt} weather: {today.weather[0].main} Today: </Text>}
+           {done && <WhiteText>Today: {today.dt_txt} weather: {today.weather[0].main} Today: </WhiteText>}
         <Text>from my component!</Text>
         {done && forecast.map((time, index, array)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
@@ -37,4 +37,10 @@ export default function Weather() {
     );
   }
   
- 
+ const WhiteText = styled.Text`
+    background-color: #222;
+    font-size: 32px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+ `;
+

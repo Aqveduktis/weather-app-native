@@ -30,12 +30,8 @@ export const MyCompass = () => {
 
       <View style={styles.sensor}>
           <ImageWrapper degree = {calcAngleDegrees(magnetData.y, magnetData.x)} /> 
-        <Text>Magnetometer: no numbers now  </Text>
         <Text>{direction(calcAngleDegrees(magnetData.y, magnetData.x))}</Text>
-  <Text>{round(magnetData.x)}</Text>
-  <Text>{round(magnetData.y)}</Text>
-  <Text>{round(magnetData.z)}</Text>
-
+ 
         <View style={styles.buttonContainer}>
 
         </View>
