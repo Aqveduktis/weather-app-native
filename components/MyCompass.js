@@ -17,7 +17,7 @@ export const MyCompass = () => {
         console.log(result)
         
         });
-        return(Magnetometer.removeAllListeners())
+     
 
   },[]) 
   // let { x, y, z } = magnetData
