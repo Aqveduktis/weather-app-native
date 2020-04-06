@@ -7,18 +7,21 @@ import moment from "moment";
 
 
 export const Card =({info}) => {
-const thisDate = Date(info.dt*1000)
+const thisDate = new Date(info.dt*1000)
 const day = moment(thisDate).format("dddd");
 const logo = 'https://openweathermap.org/img/wn/10d@2x.png'
 
 //${info.icon}
     return (
-      <View>
+    
+        <View>
         <Text> {day} </Text>
         <Text> {Math.round(info.main.temp-274)}C </Text>
         <Text> {info.weather[0].main} </Text>
-        <Image source = {{uri:{logo}}} style={{width:50, height:50}} />
+        <Image source = {{uri:`https://openweathermap.org/img/wn/${info.weather[0].icon}@2x.png`}} style={{width:50, height:50}} />
         </View>
+      
           
     );
   }
+ 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import moment from "moment";
 
 import styled from "styled-components"
 import {Card} from './Card'
@@ -33,18 +34,22 @@ export const Weather =() => {
         <View>
            {done && <Text>Today: {today.dt_txt} weather: {today.weather[0].main} Today: </Text>}
         <Text>from my component!</Text>
+        <View>
         {done && forecast.map((time)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
                 return(
-                <View>
-                    <Card key={time.dt} info={time} />
-                </View>
+                    <Card info={time} />
                 )}
         })}
+        </View>
         </View>
     );
   }
   
+  const WeatherWeek = styled.View`
+  flex: 1;
+  `
+
 
 
 //  const WeatherText = styled.Text`
