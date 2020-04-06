@@ -15,9 +15,7 @@ export default function App() {
       <ImageBackground source={ {uri:'https://upload.wikimedia.org/wikipedia/commons/6/6a/10_Sprinklers_in_vineyard_-_Trentino-Alto_Adige%2C_Italy.jpg',} } style={styles.image}>
        <Heading />
        <MyCompass />
-      <Text>Open up App.js to start working on your app!</Text>
       <Weather />
-    <MyButton />
     </ImageBackground>
     </ScrollView>
     </View>

@@ -4,9 +4,21 @@ import moment from "moment";
 
 import styled from "styled-components"
 import {Card} from './Card'
+import {TopCard} from './TopCard'
 // const secondApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=2b9468766d0e54560c7e599762d2e80b`
 // const secondApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityApi}&appid=2b9468766d0e54560c7e599762d2e80b`
 
+const WeatherWeek = styled.View`
+height: 350px;
+width: 350px;
+margin: 16px auto;      
+`;
+
+const TopBox = styled.View`
+width: 350px;
+height: 120px;
+margin: 16px auto;
+`
 
 
 export const Weather =() => {
@@ -15,7 +27,7 @@ export const Weather =() => {
     const [today, setToday] = useState({})
     const [done, setDone] = useState(false)
     const weatherapi = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&appid=2b9468766d0e54560c7e599762d2e80b"
-    //const todayApi = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=2b9468766d0e54560c7e599762d2e80b`
+    
 
     useEffect(()=>{
         fetch(weatherapi)
@@ -32,8 +44,9 @@ export const Weather =() => {
 
     return (
         <View>
-           {done && <Text>Today: {today.dt_txt} weather: {today.weather[0].main} Today: </Text>}
-        <Text>from my component!</Text>
+            <TopBox >
+           {done && <TopCard info={today} />}
+           </TopBox>
         <WeatherWeek>
         {done && forecast.map((time)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
@@ -47,11 +60,7 @@ export const Weather =() => {
     );
   }
   
-  const WeatherWeek = styled.View`
-     height: 350px;
-     width: 350px;
-     margin: 16px auto;      
-  `
+
 
 
 
