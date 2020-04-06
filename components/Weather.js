@@ -34,20 +34,23 @@ export const Weather =() => {
         <View>
            {done && <Text>Today: {today.dt_txt} weather: {today.weather[0].main} Today: </Text>}
         <Text>from my component!</Text>
-        <View>
+        <WeatherWeek>
         {done && forecast.map((time)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
                 return(
                     <Card info={time} />
                 )}
         })}
-        </View>
+    
+        </WeatherWeek>
         </View>
     );
   }
   
   const WeatherWeek = styled.View`
-  flex: 1;
+     height: 350px;
+     width: 350px;
+     margin: 16px auto;      
   `
 
 
